@@ -27,10 +27,8 @@ pipeline {
         stage('Audit') { 
             steps {
                     sh './jenkins/scripts/audit.sh'
-                    sh (
-                        script: 'git --no-pager show -s --format=\'%ae\'',
-                        returnStdout: true
-                    ).trim()
+                    def ret = sh(script: 'uname', returnStdout: true)
+                    println ret
             }
         }
     }
