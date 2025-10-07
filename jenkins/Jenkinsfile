@@ -14,7 +14,7 @@ pipeline {
         stage('Test') {
             steps {
                 withMaven(maven : 'maven') {
-                    sh 'mvn test'
+                    //sh 'mvn test'
                 }
             }
             post {

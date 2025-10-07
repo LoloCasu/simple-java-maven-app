@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+set -x
 LOG_FILE="jenkins_log.txt"
 
 echo "Étapes Jenkins et leur durée :"
@@ -59,3 +59,4 @@ awk '
     duration=$((end_sec - start_sec))
     echo "🧩 Étape: $stage_name | ⏱️ Durée: ${duration}s"
 done
+set +x
