@@ -24,7 +24,7 @@ pipeline {
             }
         }
 
-        stage('Deliver') { 
+        stage('Audit') { 
             steps {
                     sh './jenkins/scripts/audit.sh'
                     sh (
