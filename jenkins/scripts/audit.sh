@@ -1,9 +1,7 @@
  #!/usr/bin/env bash
 
 echo "Analyse des étapes Jenkins" > steps_report.txt
-grep -E '\
-
-\[Pipeline\\]
+grep -E '\\[Pipeline\\]
  stage|\
 \[Pipeline\\]
  \\{ \\(|Finished: SUCCESS' jenkins_log.txt | \
