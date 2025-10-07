@@ -27,8 +27,6 @@ pipeline {
         stage('Audit') { 
             steps {
                     sh './jenkins/scripts/audit.sh'
-                    def ret = sh(script: 'uname', returnStdout: true)
-                    println ret
             }
         }
     }
