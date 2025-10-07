@@ -11,23 +11,23 @@ pipeline {
                 }
             }
         }
-        stage('Test') {
-            steps {
-                withMaven(maven : 'maven') {
-                    //sh 'mvn test'
-                }
-            }
-            post {
-                always {
-                    junit 'target/surefire-reports/*.xml'
-                }
-            }
-        }
-
+/*         // stage('Test') {
+        //     steps {
+        //         withMaven(maven : 'maven') {
+        //             //sh 'mvn test'
+        //         }
+        //     }
+        //     post {
+        //         always {
+        //             junit 'target/surefire-reports/*.xml'
+        //         }
+        //     }
+        // } */
         stage('Audit') { 
             steps {
                     sh './jenkins/scripts/audit.sh'
             }
         }
+
     }
 }
