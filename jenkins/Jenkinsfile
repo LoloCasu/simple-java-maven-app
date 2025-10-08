@@ -38,11 +38,11 @@ pipeline {
               sub(/\\).*/, "", stage_name)
               print stage_time, stage_name
             }
-            /^\\[[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}/ {
+            /^\\[[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}/ 
+            {
               match($0, /^\\[([0-9T:\\.Z-]+)\\]/, arr)
               last_time = arr[1]
-            }
-          ' >> steps_report.txt
+            }' >> steps_report.txt
           out=readFile steps_report.txt
           println out
         '''
