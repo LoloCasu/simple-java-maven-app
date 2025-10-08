@@ -27,6 +27,7 @@ pipeline {
       steps {
         sh '''
           echo "Analyse des étapes Jenkins" > steps_report.txt
+          cat ${JENKINS_HOME}/jobs/${JOB_NAME}/builds/${BUILD_NUMBER}/log >> jenkins_log.txt
           grep -E '\\[Pipeline\\]stage|\\[Pipeline\\]\\{ \\(|Finished: SUCCESS' jenkins_log.txt | \
           awk '
             /\\[Pipeline\\]stage/ { stage_time = last_time }
